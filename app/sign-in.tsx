@@ -11,9 +11,9 @@ import {
 
 import { login } from "@/lib/appwrite";
 import { Redirect } from "expo-router";
+import { useGlobalContext } from "@/lib/global-provider";
 import icons from "@/constants/icons";
 import images from "@/constants/images";
-import { useGlobalContext } from '../lib/global-provider';
 
 const Auth = () => {
   const { refetch, loading, isLogged } = useGlobalContext();
@@ -23,6 +23,7 @@ const Auth = () => {
   const handleLogin = async () => {
     const result = await login();
     if (result) {
+      console.log('login success')
       refetch();
     } else {
       Alert.alert("Error", "Failed to login");
@@ -57,7 +58,7 @@ const Auth = () => {
           </Text>
 
           <TouchableOpacity
-            // onPress={handleLogin}
+            onPress={handleLogin}
             className="bg-white shadow-md shadow-zinc-300 rounded-full w-full py-4 mt-5"
           >
             <View className="flex flex-row items-center justify-center">
