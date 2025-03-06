@@ -1,5 +1,5 @@
 import { Link } from 'expo-router';
-import { Text, View, Image, TouchableOpacity, FlatList } from "react-native";
+import { Text, View, Image, TouchableOpacity, FlatList, Button } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import images from '../../../constants/images';
 import icons from '../../../constants/icons';
@@ -7,6 +7,7 @@ import Search from '../../../components/Search';
 import { Card, FeaturedCard } from '../../../components/Cards';
 import Filters from '../../../components/Filters';
 import { useGlobalContext } from '../../../lib/global-provider';
+import seed from '../../../lib/seed';
 
 export default function Index() {
   const { user } = useGlobalContext()
@@ -41,7 +42,7 @@ export default function Index() {
                 </TouchableOpacity>
               </View>
               <FlatList
-                data={[1, 2, 3, 4]}
+                data={[5, 6, 7]}
                 renderItem={({ item }) => <FeaturedCard />}
                 keyExtractor={(item) => item.toString()}
                 horizontal
